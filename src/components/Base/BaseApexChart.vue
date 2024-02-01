@@ -2,8 +2,12 @@
 import apexchart from 'vue3-apexcharts'
 import { ref, reactive } from 'vue'
 
-defineProps({
+const props = defineProps({
   series: {
+    type: Object,
+    requred: true
+  },
+  palette: {
     type: Object,
     requred: true
   }
@@ -31,7 +35,8 @@ const options = reactive({
     x: {
       format: 'MM/dd/yy HH:mm'
     }
-  }
+  },
+  ...props.palette
 })
 </script>
 

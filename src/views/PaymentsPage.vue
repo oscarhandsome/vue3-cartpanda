@@ -33,6 +33,19 @@ const series1 = ref([
   }
 ])
 
+const colors1 = ref({
+  colors: ['#1E54F5'],
+  fill: {
+    colors: ['#1E54F5']
+  }
+})
+const colors2 = ref({
+  colors: ['#BD1EF5'],
+  fill: {
+    colors: ['#BD1EF5']
+  }
+})
+
 const series2 = ref([
   {
     name: 'series2',
@@ -45,13 +58,15 @@ const mainPaymentsStat = ref([
     title: 'Gross volume',
     value: '120,444',
     percent: '4.9',
-    graphics: series1
+    graphics: series1,
+    palette: colors1
   },
   {
     title: 'Net volume from sales',
     value: '80,214',
     percent: '4.9',
-    graphics: series2
+    graphics: series2,
+    palette: colors2
   }
 ])
 
@@ -114,12 +129,12 @@ const checkMonth = (period: string) => alert(period)
     </div>
 
     <div class="grid lg:grid-cols-2 gap-4">
-      <div v-for="{ title, value, percent, graphics } in mainPaymentsStat" :key="value">
+      <div v-for="{ title, value, percent, graphics, palette } in mainPaymentsStat" :key="value">
         <BaseCard>
           <template #card-name>{{ title }}</template>
           <template #card-price>${{ value }}</template>
           <template #card-percent><ArrowUpRightIcon class="inline" />{{ percent }}%</template>
-          <BaseApexChart class="mt-8" :series="graphics" />
+          <BaseApexChart class="mt-8" :series="graphics" :palette="palette" />
         </BaseCard>
       </div>
     </div>
