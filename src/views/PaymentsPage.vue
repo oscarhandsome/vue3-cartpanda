@@ -26,6 +26,37 @@ const tableData = ref({
   ]
 })
 
+const mainPaymentsStat = ref([
+  {
+    title: 'Gross volume',
+    value: '120,444',
+    percent: '4.9'
+  },
+  {
+    title: 'Net volume from sales',
+    value: '80,214',
+    percent: '4.9'
+  }
+])
+
+const statisticsData = ref([
+  {
+    title: 'Succeeded payments',
+    value: '90,294',
+    percent: '98'
+  },
+  {
+    title: 'Refunded payments',
+    value: '1,924',
+    percent: '4'
+  },
+  {
+    title: 'Failed payments',
+    value: '10',
+    percent: '0,4'
+  }
+])
+
 const filterOpen = () => alert('Here can be filter')
 const checkMonth = (period: string) => alert(period)
 </script>
@@ -67,22 +98,22 @@ const checkMonth = (period: string) => alert(period)
     </div>
 
     <div class="grid lg:grid-cols-2 gap-4">
-      <div v-for="item in 2" :key="item">
+      <div v-for="{ title, value, percent } in mainPaymentsStat" :key="value">
         <BaseCard>
-          <template #card-name>Gross volume</template>
-          <template #card-price>$120,444</template>
-          <template #card-percent><ArrowUpRightIcon class="inline" />4.9%</template>
+          <template #card-name>{{ title }}</template>
+          <template #card-price>${{ value }}</template>
+          <template #card-percent><ArrowUpRightIcon class="inline" />{{ percent }}%</template>
           <BaseApexChart class="mt-8" />
         </BaseCard>
       </div>
     </div>
 
     <div class="grid lg:grid-cols-3 gap-4">
-      <div v-for="item in 3" :key="item">
+      <div v-for="{ title, value, percent } in statisticsData" :key="value">
         <BaseCard class="py-4">
-          <template #card-name>Succeeded payments</template>
-          <template #card-price>90,294</template>
-          <template #card-percent>98%</template>
+          <template #card-name>{{ title }}</template>
+          <template #card-price>{{ value }}</template>
+          <template #card-percent>{{ percent }}%</template>
         </BaseCard>
       </div>
     </div>
