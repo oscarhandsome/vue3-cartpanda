@@ -1,74 +1,63 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import LayoutIcon from '@/assets/images/layout.svg?component'
-import BoxIcon from '@/assets/images/box.svg?component'
-import CreditCardIcon from '@/assets/images/credit-card.svg?component'
-import TagIcon from '@/assets/images/tag.svg?component'
-import UsersIcon from '@/assets/images/users.svg?component'
-import BarChartIcon from '@/assets/images/bar-chart.svg?component'
-import PercentIcon from '@/assets/images/percent.svg?component'
-import GridIcon from '@/assets/images/grid.svg?component'
-
-import SettingsIcon from '@/assets/images/settings.svg?component'
-import ShoppingBagIcon from '@/assets/images/shopping-bag.svg?component'
-
 import NavigationItem from './NavigationItem.vue'
+import BaseIcon from '@/components/Base/BaseIcon.vue'
 
 const menu = ref([
   {
     id: 1,
     name: 'Dashboard',
-    icon: LayoutIcon,
+    icon: 'layout',
     path: '/',
     active: true
   },
   {
     id: 2,
     name: 'Orders',
-    icon: BoxIcon,
+    icon: 'box',
     path: '',
     active: false
   },
   {
     id: 3,
     name: 'Payments',
-    icon: CreditCardIcon,
+    icon: 'credit-card',
     path: '/payments',
     active: false
   },
   {
     id: 4,
     name: 'Products',
-    icon: TagIcon,
+    icon: 'tag',
     path: '',
     active: false
   },
   {
     id: 5,
     name: 'Clients',
-    icon: UsersIcon,
+    icon: 'users',
     path: '',
     active: false
   },
   {
     id: 6,
     name: 'Metrics',
-    icon: BarChartIcon,
+    icon: 'bar-chart',
     path: '',
     active: false
   },
   {
     id: 7,
     name: 'Discounts',
-    icon: PercentIcon,
+    icon: 'percent',
     path: '',
     active: false
   },
   {
     id: 8,
     name: 'Apps',
-    icon: GridIcon,
+    icon: 'grid',
     path: '',
     active: false
   }
@@ -78,14 +67,14 @@ const menuBottom = ref([
   {
     id: 1,
     name: 'Admin',
-    icon: SettingsIcon,
+    icon: 'settings',
     path: '',
     active: false
   },
   {
     id: 2,
     name: 'Online-Store',
-    icon: ShoppingBagIcon,
+    icon: 'shopping-bag',
     path: '',
     active: false
   }
@@ -102,7 +91,8 @@ const navigateTo = (path: string) => {
   <nav class="flex flex-col flex-grow justify-between">
     <div class="flex flex-col flex-grow gap-2 mb-auto">
       <NavigationItem v-for="item in menu" :key="item.id" :item="item" @navigate-to="navigateTo">
-        <component :is="item.icon" class="inline mr-3" />
+        <!-- <component :is="item.icon" class="inline mr-3" /> -->
+        <BaseIcon :name="item.icon" class="mr-3" />
       </NavigationItem>
     </div>
     <div class="flex flex-col gap-2 mb-0 mt-auto">
@@ -112,7 +102,8 @@ const navigateTo = (path: string) => {
         :item="item"
         @navigate-to="navigateTo"
       >
-        <component :is="item.icon" class="inline mr-3" />
+        <!-- <component :is="item.icon" class="inline mr-3" /> -->
+        <BaseIcon :name="item.icon" class="mr-3" />
       </NavigationItem>
     </div>
   </nav>
