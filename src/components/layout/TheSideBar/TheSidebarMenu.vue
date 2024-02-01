@@ -4,7 +4,16 @@ import { ref } from 'vue'
 import NavigationItem from './NavigationItem.vue'
 import BaseIcon from '@/components/Base/BaseIcon.vue'
 
-const menu = ref([
+// AS EXAMPLE
+type MenuType = {
+  id: number
+  name: string
+  icon: string
+  path: string
+  active: boolean
+}
+
+const menu = ref<MenuType[]>([
   {
     id: 1,
     name: 'Dashboard',
@@ -63,7 +72,7 @@ const menu = ref([
   }
 ])
 
-const menuBottom = ref([
+const menuBottom = ref<MenuType[]>([
   {
     id: 1,
     name: 'Admin',
