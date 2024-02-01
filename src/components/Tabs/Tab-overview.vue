@@ -15,7 +15,9 @@ import BaseTable from '@/components/Base/BaseTable.vue'
 // import TabOverview from '@/components/Tabs/Tab-overview.vue'
 // import TabTransactions from '@/components/Tabs/Tab-transactions.vue'
 
-const tableData = ref({
+import type { ITable } from '@/types'
+
+const tableData = ref<ITable>({
   title: 'Recent transactions',
   headers: ['Transaction date', 'ID', 'Method', 'Amount', 'Status', ''],
   items: [
@@ -24,6 +26,20 @@ const tableData = ref({
       id: '#325465',
       paymentMethod: 'Mastercard',
       price: '$99,99',
+      status: 'Completed'
+    },
+    {
+      date: '10/17/2023, 2:35 PM',
+      id: '#325265',
+      paymentMethod: 'Mastercard',
+      price: '$80,000',
+      status: 'Completed'
+    },
+    {
+      date: '10/17/2023, 2:35 PM',
+      id: '#125265',
+      paymentMethod: 'Mastercard',
+      price: '$1,199.98',
       status: 'Completed'
     }
   ]

@@ -4,12 +4,9 @@ import DotsIcon from '@/assets/images/dots.svg?component'
 
 import BaseBadge from './BaseBadge.vue'
 
-defineProps({
-  data: {
-    type: Object,
-    required: true
-  }
-})
+import type { ITable } from '@/types'
+
+defineProps<{ data: ITable }>()
 </script>
 
 <template>
