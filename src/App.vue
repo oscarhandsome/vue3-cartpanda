@@ -5,9 +5,15 @@ import AppLayout from './layout/AppLayout.vue'
 
 <template>
   <AppLayout>
-    <Transition>
+    <router-view v-slot="{ Component }">
+      <transition>
+        <component :is="Component" />
+      </transition>
+    </router-view>
+    <!-- old?  -->
+    <!-- <Transition>
       <RouterView />
-    </Transition>
+    </Transition> -->
   </AppLayout>
 </template>
 

@@ -1,12 +1,20 @@
 <script lang="ts" setup>
-import { FunnelIcon, ArrowUpRightIcon } from '@heroicons/vue/24/solid'
+import FilterIcon from '@/assets/images/filter.svg'
+import ArrowUpRightIcon from '@/assets/images/arrow-up-right.svg'
+import MastercardIcon from '@/assets/images/Mastercard.svg'
 // import BarChart from '@/components/BarChart.vue'
-import ApexChart from '@/components/ApexChart.vue'
+import BaseApexChart from '@/components/Base/BaseApexChart.vue'
+
+import BaseTitle from '@/components/Base/BaseTitle.vue'
+import BaseButton from '@/components/Base/BaseButton.vue'
+import BaseCard from '@/components/Base/BaseCard.vue'
+
+const filterOpen = () => alert('Here can be filter')
 </script>
 
 <template>
   <div class="flex flex-col gap-6 w-full">
-    <h2 class="font-medium text-2xl leading-[26px] tracking-[-0.2px]">Payments</h2>
+    <BaseTitle>Payments</BaseTitle>
 
     <div class="flex border border-transparent border-b-gray-300 w-full">
       <ul class="flex">
@@ -39,62 +47,33 @@ import ApexChart from '@/components/ApexChart.vue'
       </div>
 
       <div>
-        <button
-          class="text-sm font-medium leading-5 bg-white hover:bg-white border rounded-lg transition-colors px-2 py-1"
-        >
-          <FunnelIcon class="inline h-4 w-4 text-gray-300 mr-2" />
+        <BaseButton @clicked="filterOpen">
+          <template #before-content>
+            <FilterIcon class="inline mr-2" />
+          </template>
           Filter
-        </button>
+        </BaseButton>
       </div>
     </div>
 
-    <div class="grid grid-cols-2 gap-4">
-      <div>
-        <div class="card flex flex-col gap-8 border rounded-2xl p-6">
-          <div>
-            <h4 class="text-gray-400 mb-2">Gross volume</h4>
-            <div>
-              <span class="font-bold text-lg mr-2">$120,444</span>
-              <span class="bg-[#E2F0EC] text-[#007E46] rounded-md">
-                <ArrowUpRightIcon class="inline h-4 w-4" />
-                4.9
-              </span>
-            </div>
-            <!-- <BarChart /> -->
-            <ApexChart />
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="card flex flex-col gap-8 border rounded-2xl p-6">
-          <div>
-            <h4 class="text-gray-400 mb-2">Gross volume</h4>
-            <div>
-              <span class="font-bold text-lg mr-2">$120,444</span>
-              <span class="bg-[#E2F0EC] text-[#007E46] rounded-md">
-                <ArrowUpRightIcon class="inline h-4 w-4" />
-                4.9
-              </span>
-            </div>
-            <!-- <BarChart /> -->
-            <ApexChart />
-          </div>
-        </div>
+    <div class="grid lg:grid-cols-2 gap-4">
+      <div v-for="item in 2" :key="item">
+        <BaseCard>
+          <template #card-name>Gross volume</template>
+          <template #card-price>$120,444</template>
+          <template #card-percent><ArrowUpRightIcon class="inline" />4.9%</template>
+          <BaseApexChart class="mt-8" />
+        </BaseCard>
       </div>
     </div>
 
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid lg:grid-cols-3 gap-4">
       <div v-for="item in 3" :key="item">
-        <div class="card flex flex-col gap-8 border rounded-2xl p-6">
-          <div>
-            <h4 class="text-gray-400 mb-2">Succeeded payments</h4>
-            <div>
-              <span class="font-bold text-lg mr-2">90,294</span>
-              <span class="bg-green-400 text-green-700 rounded-md"> 4.9%</span>
-            </div>
-          </div>
-        </div>
+        <BaseCard class="py-4">
+          <template #card-name>Succeeded payments</template>
+          <template #card-price>90,294</template>
+          <template #card-percent>98%</template>
+        </BaseCard>
       </div>
     </div>
 
@@ -116,12 +95,7 @@ import ApexChart from '@/components/ApexChart.vue'
             <td class="py-6 pl-4">10/17/2023, 2:35 PM</td>
             <td class="py-6">#325465</td>
             <td class="py-6">
-              <img
-                alt="Method-MasterCard"
-                src="@/assets/images/Mastercard.svg"
-                width="35"
-                height="24"
-              />
+              <MastercardIcon />
             </td>
             <td class="py-6">$99,99</td>
             <td class="py-6">

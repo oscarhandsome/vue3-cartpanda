@@ -47,7 +47,7 @@ const series = ref([
 </script>
 
 <template>
-  <div>
+  <div class="-ml-3">
     <apexchart type="area" height="350" :options="options" :series="series"></apexchart>
   </div>
 </template>
