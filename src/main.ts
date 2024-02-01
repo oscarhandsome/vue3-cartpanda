@@ -6,13 +6,13 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-import TheHeader from './components/layout/TheHeader/index.vue'
+// import TheHeader from './components/layout/TheHeader/index.vue'
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
 
-app.component('TheHeader', TheHeader)
+// app.component('TheHeader', TheHeader)
 
 app.mount('#app')

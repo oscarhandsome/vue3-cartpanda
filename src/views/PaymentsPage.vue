@@ -90,6 +90,9 @@ const statisticsData = ref([
 
 const filterOpen = () => alert('Here can be filter')
 const checkMonth = (period: string) => alert(period)
+
+const tabClicked = () => console.log()
+const tabChanged = () => console.log()
 </script>
 
 <template>

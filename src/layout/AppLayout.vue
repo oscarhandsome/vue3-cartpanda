@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import TheHeader from '@/components/layout/TheHeader/index.vue'
 import TheSideBar from '@/components/layout/TheSideBar/index.vue'
 </script>
 
