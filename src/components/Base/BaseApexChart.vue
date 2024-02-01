@@ -2,6 +2,13 @@
 import apexchart from 'vue3-apexcharts'
 import { ref, reactive } from 'vue'
 
+defineProps({
+  series: {
+    type: Object,
+    requred: true
+  }
+})
+
 const options = reactive({
   chart: {
     height: 350,
@@ -18,32 +25,14 @@ const options = reactive({
   },
   xaxis: {
     type: 'datetime',
-    categories: [
-      '2018-09-19T00:00:00.000Z',
-      '2018-09-19T01:30:00.000Z',
-      '2018-09-19T02:30:00.000Z',
-      '2018-09-19T03:30:00.000Z',
-      '2018-09-19T04:30:00.000Z',
-      '2018-09-19T05:30:00.000Z',
-      '2018-09-19T06:30:00.000Z'
-    ]
+    categories: ['2023-10-19T00:00:00.000Z', '2023-10-19T01:30:00.000Z', '2023-10-19T02:30:00.000Z']
   },
   tooltip: {
     x: {
-      format: 'dd/MM/yy HH:mm'
+      format: 'MM/dd/yy HH:mm'
     }
   }
 })
-const series = ref([
-  {
-    name: 'series1',
-    data: [31, 40, 28, 51, 42, 109, 100]
-  },
-  {
-    name: 'series2',
-    data: [11, 32, 45, 32, 34, 52, 41]
-  }
-])
 </script>
 
 <template>
