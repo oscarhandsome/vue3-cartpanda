@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 import svgLoader from 'vite-svg-loader'
+// import svgSfc from 'vite-plugin-svg-sfc'
 
 // https://vitejs.dev/config/
 export default defineConfig({

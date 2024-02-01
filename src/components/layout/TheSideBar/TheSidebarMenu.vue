@@ -1,8 +1,5 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
-
-// import { BellIcon, MagnifyingGlassIcon, Cog6ToothIcon } from '@heroicons/vue/24/solid'
 
 import LayoutIcon from '@/assets/images/layout.svg?component'
 import BoxIcon from '@/assets/images/box.svg?component'
