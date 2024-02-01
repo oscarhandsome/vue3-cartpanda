@@ -56,6 +56,19 @@ const options = reactive({
   tooltip: {
     x: {
       format: 'MM/dd/yy HH:mm'
+    },
+    style: {
+      fontSize: '12px',
+      fontFamily: 'Inter'
+    },
+    custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+      return (
+        '<div class="font-medium  text-white bg-black rounded-lg border-none px-[6px] py-[2px]">' +
+        '<span>$' +
+        series[seriesIndex][dataPointIndex] +
+        '</span>' +
+        '</div>'
+      )
     }
   },
   ...props.palette,
