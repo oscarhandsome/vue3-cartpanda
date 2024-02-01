@@ -1,15 +1,33 @@
 <script lang="ts" setup>
-import FilterIcon from '@/assets/images/filter.svg'
-import ArrowUpRightIcon from '@/assets/images/arrow-up-right.svg'
-import MastercardIcon from '@/assets/images/Mastercard.svg'
+import { ref } from 'vue'
+import FilterIcon from '@/assets/images/filter.svg?component'
+import ArrowUpRightIcon from '@/assets/images/arrow-up-right.svg?component'
+// import MastercardIcon from '@/assets/images/Mastercard.svg?component'
+// import DotsIcon from '@/assets/images/dots.svg?component'
 // import BarChart from '@/components/BarChart.vue'
 import BaseApexChart from '@/components/Base/BaseApexChart.vue'
 
 import BaseTitle from '@/components/Base/BaseTitle.vue'
 import BaseButton from '@/components/Base/BaseButton.vue'
 import BaseCard from '@/components/Base/BaseCard.vue'
+import BaseTable from '@/components/Base/BaseTable.vue'
+
+const tableData = ref({
+  title: 'Recent transactions',
+  headers: ['Transaction date', 'ID', 'Method', 'Amount', 'Status', ''],
+  items: [
+    {
+      date: '10/17/2023, 2:35 PM',
+      id: '#325465',
+      paymentMethod: 'Mastercard',
+      price: '$99,99',
+      status: 'Completed'
+    }
+  ]
+})
 
 const filterOpen = () => alert('Here can be filter')
+const checkMonth = (period: string) => alert(period)
 </script>
 
 <template>
@@ -32,22 +50,14 @@ const filterOpen = () => alert('Here can be filter')
     </div>
 
     <div class="flex justify-between">
-      <div class="border-2 mr-auto bg-gray-100 rounded-lg">
-        <button
-          class="text-sm font-medium leading-5 bg-white hover:bg-white border rounded-lg transition-colors px-2 py-1"
-        >
-          Monthy
-        </button>
-        <button class="text-sm hover:bg-white rounded-lg transition-colors px-2 py-1">
-          Quarterly
-        </button>
-        <button class="text-sm hover:bg-white rounded-lg transition-colors px-2 py-1">
-          Yearly
-        </button>
+      <div class="border-2 mr-auto bg-gray-light rounded-lg">
+        <BaseButton active @clicked="checkMonth('Monthy')">Monthy</BaseButton>
+        <BaseButton @clicked="checkMonth('Quarterly')">Quarterly</BaseButton>
+        <BaseButton @clicked="checkMonth('Yearly')">Yearly</BaseButton>
       </div>
 
       <div>
-        <BaseButton @clicked="filterOpen">
+        <BaseButton active @clicked="filterOpen">
           <template #before-content>
             <FilterIcon class="inline mr-2" />
           </template>
@@ -78,35 +88,7 @@ const filterOpen = () => alert('Here can be filter')
     </div>
 
     <div class="w-full">
-      <h5 class="font-medium leading-5 mb-4">Recent transactions</h5>
-      <table class="table-auto w-full text-[13px]">
-        <thead>
-          <tr class="text-left text-gray-500 font-normal bg-gray-200 rounded-lg overflow-hidden">
-            <th class="px-2 pl-4">Transaction date</th>
-            <th class="px-2">ID</th>
-            <th class="px-2">Method</th>
-            <th class="px-2">Amount</th>
-            <th class="px-2">Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in 10" :key="item">
-            <td class="py-6 pl-4">10/17/2023, 2:35 PM</td>
-            <td class="py-6">#325465</td>
-            <td class="py-6">
-              <MastercardIcon />
-            </td>
-            <td class="py-6">$99,99</td>
-            <td class="py-6">
-              <span class="bg-[#E2F0EC] text-[#007E46] xpy-1 px-2 rounded-lg">Completed</span>
-            </td>
-            <td class="py-6 pr-4">
-              <button class="border rounded-lg px-2">...</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <BaseTable :data="tableData" />
     </div>
   </div>
 </template>

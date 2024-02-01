@@ -12,7 +12,8 @@ export default {
         'green-dark': '#007E46',
         'green-light': 'rgb(226, 240, 236)',
         'gray-sidebar': 'rgb(246, 248, 250)',
-        'gray-dark': '#E2E8EB'
+        'gray-dark': '#E2E8EB',
+        'gray-light': '#F6F8FA'
       }
     }
   },

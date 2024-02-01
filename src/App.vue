@@ -6,14 +6,10 @@ import AppLayout from './layout/AppLayout.vue'
 <template>
   <AppLayout>
     <router-view v-slot="{ Component }">
-      <transition>
+      <Transition name="slide-fade">
         <component :is="Component" />
-      </transition>
+      </Transition>
     </router-view>
-    <!-- old?  -->
-    <!-- <Transition>
-      <RouterView />
-    </Transition> -->
   </AppLayout>
 </template>
 
@@ -23,13 +19,15 @@ body {
   font-family: Inter, sans-serif;
 }
 
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.85s ease;
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
 }
-
-.v-enter-from,
-.v-leave-to {
+.slide-fade-leave-active {
+  transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-10px);
   opacity: 0;
 }
 </style>
