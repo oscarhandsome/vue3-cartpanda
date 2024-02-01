@@ -27,8 +27,20 @@ const options = reactive({
   stroke: {
     curve: 'smooth'
   },
+  yaxis: {
+    labels: {
+      formatter: function (value) {
+        return '$' + value
+      }
+    }
+  },
   xaxis: {
-    type: 'datetime',
+    labels: {
+      formatter: function (value) {
+        const date = new Date(value)
+        return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
+      }
+    },
     categories: ['2023-10-19T00:00:00.000Z', '2023-10-19T01:30:00.000Z', '2023-10-19T02:30:00.000Z']
   },
   tooltip: {
@@ -36,7 +48,10 @@ const options = reactive({
       format: 'MM/dd/yy HH:mm'
     }
   },
-  ...props.palette
+  ...props.palette,
+  legend: {
+    show: false
+  }
 })
 </script>
 
