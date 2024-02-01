@@ -14,9 +14,10 @@ defineProps({
 
 <template>
   <h5 class="font-medium leading-5 mb-4">{{ data.title }}</h5>
+
   <table class="table-auto w-full font-normal text-[13px] leading-4">
     <thead>
-      <tr class="text-left text-[#5D626C] font-normal bg-gray-light">
+      <tr class="text-left text-[#5D626C] bg-gray-light">
         <th
           v-for="(headerName, idx) in data.headers"
           :key="headerName"
@@ -39,7 +40,7 @@ defineProps({
         <td class="py-6">
           <BaseBadge :status="status">{{ status }}</BaseBadge>
         </td>
-        <td class="py-6 pr-4">
+        <td class="w-10 py-6 pr-4">
           <button class="outline-none"><DotsIcon /></button>
         </td>
       </tr>
