@@ -28,7 +28,7 @@ const tableData = ref({
 
 const series1 = ref([
   {
-    name: 'series1',
+    name: 'Gross volume',
     data: [40, 20, 85]
   }
 ])
@@ -48,7 +48,7 @@ const colors2 = ref({
 
 const series2 = ref([
   {
-    name: 'series2',
+    name: 'Net volume from sales',
     data: [40, 20, 65]
   }
 ])

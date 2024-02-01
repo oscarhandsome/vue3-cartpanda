@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import apexchart from 'vue3-apexcharts'
-import { ref, reactive } from 'vue'
+import { reactive } from 'vue'
 
 const props = defineProps({
   series: {
@@ -31,6 +31,11 @@ const options = reactive({
     labels: {
       formatter: function (value) {
         return '$' + value
+      },
+      style: {
+        colors: ['#707581'],
+        fontSize: '12px',
+        fontWeight: 400
       }
     }
   },
@@ -39,6 +44,11 @@ const options = reactive({
       formatter: function (value) {
         const date = new Date(value)
         return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
+      },
+      style: {
+        colors: ['#707581'],
+        fontSize: '12px',
+        fontWeight: 400
       }
     },
     categories: ['2023-10-19T00:00:00.000Z', '2023-10-19T01:30:00.000Z', '2023-10-19T02:30:00.000Z']
