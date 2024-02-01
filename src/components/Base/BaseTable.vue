@@ -15,18 +15,20 @@ defineProps({
 <template>
   <h5 class="font-medium leading-5 mb-4">{{ data.title }}</h5>
 
-  <table class="table-auto w-full font-normal text-[13px] leading-4">
+  <table class="table-auto font-normal text-[13px] leading-4 w-full">
     <thead>
       <tr class="text-left text-[#5D626C] bg-gray-light">
         <th
           v-for="(headerName, idx) in data.headers"
           :key="headerName"
           class="px-2 py-2"
-          :class="{ 'pl-4 ': idx === 0 }"
+          :class="{
+            'pl-4 rounded-l-lg': idx === 0
+          }"
         >
           {{ headerName }}
         </th>
-        <th></th>
+        <th class="rounded-r-lg"></th>
       </tr>
     </thead>
     <tbody>
