@@ -104,7 +104,7 @@ const navigateTo = (path: string) => {
         <BaseIcon :name="item.icon" class="mr-3" />
       </NavigationItem>
     </div>
-    <div class="flex flex-col gap-2 mb-0 mt-auto sticky bottom-0">
+    <div class="flex flex-col gap-2 mb-0 mt-auto sticky bottom-6">
       <NavigationItem
         v-for="item in menuBottom"
         :key="item.id"
