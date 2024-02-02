@@ -50,7 +50,13 @@ export default [
   {
     path: '/admin',
     name: 'admin',
-    component: () => import('../views/AdminPage.vue')
+    component: () => import('../views/Admin/index.vue'),
+    children: [
+      {
+        path: 'settings',
+        component: () => import('../views/Admin/settings.vue')
+      }
+    ]
   },
   {
     path: '/online-store',
