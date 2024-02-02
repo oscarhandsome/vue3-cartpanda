@@ -1,76 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DashboardPage from '../views/DashboardPage.vue'
+import routes from './routes'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'dashboard',
-      component: DashboardPage,
-      meta: {
-        title: 'My dashboard'
-        // layout: 'AppLayout' - 2nd variant of layouts
-      }
-    },
-    {
-      path: '/orders',
-      name: 'orders',
-      component: () => import('../views/OrdersPage.vue'),
-      meta: { title: 'My orders' }
-    },
-    {
-      path: '/payments',
-      name: 'payments',
-      component: () => import('../views/PaymentsPage.vue'),
-      meta: { title: 'My payments' }
-    },
-    {
-      path: '/products',
-      name: 'products',
-      component: () => import('../views/ProductsPage.vue')
-    },
-    {
-      path: '/clients',
-      name: 'clients',
-      component: () => import('../views/ClientsPage.vue')
-    },
-    {
-      path: '/metrics',
-      name: 'metrics',
-      component: () => import('../views/MetricsPage.vue')
-    },
-    {
-      path: '/discounts',
-      name: 'discounts',
-      component: () => import('../views/DiscountsPage.vue')
-    },
-    {
-      path: '/apps',
-      name: 'apps',
-      component: () => import('../views/AppsPage.vue')
-    },
-    {
-      path: '/admin',
-      name: 'admin',
-      component: () => import('../views/AdminPage.vue')
-    },
-    {
-      path: '/online-store',
-      name: 'online-store',
-      component: () => import('../views/OnlineStorePage.vue')
-    },
-    {
-      path: '/user',
-      name: 'user',
-      component: () => import('../views/UserPage.vue')
-    },
-    {
-      path: '/notifications',
-      name: 'notifications',
-      component: () => import('../views/NotificationsPage.vue')
-    }
-  ]
+  routes
 })
 
 const DEFAULT_TITLE = 'Some Default Title'
