@@ -79,7 +79,7 @@ const options = reactive({
 </script>
 
 <template>
-  <div class="-ml-3">
+  <div class="-mx-3">
     <apexchart type="area" height="350" :options="options" :series="series"></apexchart>
   </div>
 </template>
