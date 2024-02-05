@@ -1,17 +1,18 @@
-<script lang="ts">
-export default {
-  data() {
-    return {
-      currentTab: 'Overview',
-      tabs: ['Overview', 'Transactions-history']
-    }
-  },
-  computed: {
-    currentTabComponent() {
-      return 'tab-' + this.currentTab.toLowerCase()
-    }
-  }
-}
+<script lang="ts" setup>
+import {
+  // defineAsyncComponent,
+  ref,
+  computed
+} from 'vue'
+// const TabOverview = defineAsyncComponent(() => import('@/components/Tabs/Tab-overview.vue'))
+// const TabTransactionsHistory = defineAsyncComponent(
+//   () => import('@/components/Tabs/Tab-transactions-history.vue')
+// )
+
+const currentTab = ref('Overview')
+const tabs = ref(['Overview', 'Transactions-history'])
+
+const currentTabComponent = computed(() => 'tab-' + currentTab.value.toLowerCase())
 </script>
 
 <template>
