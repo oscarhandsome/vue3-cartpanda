@@ -6,7 +6,7 @@ import AppLayout from './layout/AppLayout.vue'
 <template>
   <AppLayout>
     <router-view v-slot="{ Component }">
-      <Transition name="slide-fade">
+      <Transition name="slide-fade" mode="out-in">
         <component :is="Component" />
       </Transition>
     </router-view>
