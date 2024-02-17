@@ -72,5 +72,10 @@ export default [
     path: '/notifications',
     name: 'notifications',
     component: () => import('../views/NotificationsPage.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import('../views/NotFoundPage.vue')
   }
 ]
